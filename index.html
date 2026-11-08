@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#101a20" />
+  <title>Qarabağ — Qış əməliyyatı</title>
+  <link rel="icon" type="image/svg+xml" href="/flag.svg" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game"></canvas>
+    <div id="vignette"></div>
+    <header id="topbar">
+      <div class="brand"><span class="brand-mark">Q</span><div><strong>QARABAĞ</strong><small>Qış əməliyyatı</small></div></div>
+      <div class="mission"><span class="pulse"></span><div><small>ƏMƏLİYYAT</small><strong id="objective">Mövqeləri azad et</strong></div></div>
+      <div class="progress-wrap"><div class="progress-label"><span>AZAD EDİLƏN MÖVQELƏR</span><b id="count">0 / 6</b></div><div class="progress-track"><i id="progress"></i></div></div>
+      <button id="sound-toggle" class="icon-btn" title="Səsi aç / bağla">♫</button>
+    </header>
+    <section id="location-card"><span class="location-dot"></span><span id="location">QARLI DÜZƏN</span><span class="coords">39° 48′ Ş · 46° 45′ Ş</span></section>
+    <div id="damage-flash"></div>
+    <div id="hit-marker">✕</div>
+    <div id="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+    <section id="weapon-panel">
+      <div class="weapon-meta"><span class="weapon-label">AK-74</span><span class="weapon-type">AVTOMATİK · 5.45×39</span></div>
+      <div class="ammo"><strong id="ammo">30</strong><span>/</span><span id="reserve">120</span></div>
+      <div class="ammo-bar"><i id="ammo-bar"></i></div>
+      <div class="weapon-switch"><kbd>1</kbd> AK-74 <kbd>2</kbd> AK-47</div>
+    </section>
+    <section id="status-panel"><div class="health-icon">✚</div><div class="health-info"><span>SAĞLAMLIQ</span><div class="health-track"><i id="health"></i></div></div><strong id="health-number">100</strong></section>
+    <div id="capture-banner"><span class="capture-icon">⚑</span><div><strong id="capture-title">MÖVQENİ AZAD ET</strong><small id="capture-sub">Əraziyə daxil ol</small><div class="capture-track"><i id="capture-bar"></i></div></div></div>
+    <div id="toast"></div>
+    <div id="reload-indicator">ŞARJÖR DƏYİŞİR…</div>
+    <div id="start-screen" class="screen visible">
+      <div class="start-backdrop"></div>
+      <div class="start-content">
+        <div class="eyebrow"><span></span> QIŞ ƏMƏLİYYATI · 2026</div>
+        <h1>QARABAĞ</h1>
+        <p class="subtitle">Qarlı yüksəkliklərdə irəlilə.<br/>İşğal altındakı mövqeləri azad et.</p>
+        <div class="briefing"><div class="brief-icon">⌖</div><div><strong>ƏMƏLİYYAT TAPŞIRIĞI</strong><p>Dağılmış kəndlərdəki 6 mövqeni ələ keçir. Hər mövqedəki düşmən dəstəsini zərərsizləşdir və bayrağı qaldır.</p></div></div>
+        <button id="start-button" class="primary-button">ƏMƏLİYYATA BAŞLA <span>→</span></button>
+        <div class="control-hint"><span>W A S D</span> HƏRƏKƏT <i>·</i> <span>SHIFT</span> QAÇ <i>·</i> <span>C</span> ƏYİL <i>·</i> <span>SPACE</span> TULLAN <i>·</i> <span>R</span> DƏYİŞ</div>
+        <div class="mobile-note">Mobil cihazda ekrana toxunaraq başlayın</div>
+      </div>
+      <div class="start-footer"><span>FPS · TƏK NƏFƏRLIK ƏMƏLİYYAT</span><span>QARABAĞ DAĞLARI · QIŞ</span></div>
+    </div>
+    <div id="pause-screen" class="screen">
+      <div class="pause-card"><span class="eyebrow">ƏMƏLİYYAT DAYANDIRILDI</span><h2>Fasilə</h2><p>Yüksəkliklərdə vəziyyət sabitdir.</p><button id="resume-button" class="primary-button">DAVAM ET <span>→</span></button><button id="restart-button" class="secondary-button">YENİDƏN BAŞLA</button></div>
+    </div>
+    <div id="end-screen" class="screen"><div class="pause-card"><span class="eyebrow" id="end-eyebrow">TAPŞIRIQ TAMAMLANDI</span><h2 id="end-title">Mövqelər azad edildi</h2><p id="end-copy">Qarlı kəndlərdə bayraq yenidən dalğalanır.</p><button id="again-button" class="primary-button">YENİDƏN OYNA <span>→</span></button></div></div>
+    <div id="mobile-controls">
+      <div id="move-pad"><button data-move="forward">▲</button><div><button data-move="left">◀</button><button data-move="back">▼</button><button data-move="right">▶</button></div></div>
+      <div class="mobile-actions"><button id="mobile-crouch">ƏYİL</button><button id="mobile-jump">TULLAN</button><button id="mobile-reload">R</button><button id="mobile-fire">ATƏŞ</button></div>
+    </div>
+    <div id="objective-complete"><div class="complete-star">✦</div><strong>MÖVQELƏR AZAD EDİLDİ</strong><span>Tapşırıq uğurla tamamlandı</span></div>
+    <div id="caption">Qalıq bölmələri tapın. Mövqeləri təmizləyin və azad edin.</div>
+  </main>
+  <script type="module" src="/game.js"></script>
+</body>
+</html>
